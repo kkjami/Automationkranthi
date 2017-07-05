@@ -10,7 +10,7 @@
 </servlet>
     <servlet-mapping>
         <servlet-name>start</servlet-name>
-        <url-pattern>/hell/*</url-pattern>
+        <url-pattern>/testng</url-pattern>
     </servlet-mapping>
 
 </web-app>

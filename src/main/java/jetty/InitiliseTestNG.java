@@ -26,7 +26,8 @@ public class InitiliseTestNG extends HttpServlet {
         tests.add("src\\main\\resources\\testsuitsample.xml");
         testng.setTestSuites(tests);
         testng.run();
-
+        //TODO response.redirect testbghtml report.
+//        response.getWriter().println("<a href=/"target\\content.html/">viewrepotr</a>");
     }
 
 }
