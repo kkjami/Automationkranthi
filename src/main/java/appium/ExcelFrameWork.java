@@ -15,9 +15,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.io.*;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 
@@ -69,11 +67,11 @@ public class ExcelFrameWork {
                     driver.findElement(By.linkText(testsheet.getCell(0, b).getContents())).click();
                 } else if (testsheet.getCell(2, b).getContents().equalsIgnoreCase("wait")) {
 //                    Thread.sleep(testsheet.getCell(0, b).getContents()));
-                    //TO-DO check with rames non string and string excel vlues.
+                    //TODO check with rames non string and string excel vlues.
                 } else if (testsheet.getCell(2, b).getContents().equalsIgnoreCase("textbox")) {
                     driver.findElement(By.id(testsheet.getCell(0, b).getContents())).sendKeys(testsheet.getCell(3, b).getContents());
                 }
-                //TO-DO incomplete need to do.
+                //TODO incomplete need to do.
             }
         }
     }

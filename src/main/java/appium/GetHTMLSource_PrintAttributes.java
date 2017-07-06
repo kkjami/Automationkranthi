@@ -17,6 +17,7 @@ import org.testng.annotations.Test;
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -48,9 +49,9 @@ public class GetHTMLSource_PrintAttributes {
     @Test(enabled = false)
     public void gettingSource() {
         try {
-            driver = new AndroidDriver<WebElement>(new URL("http://127.0.0.1:4723/wd/hub"), dc);
+            driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), dc);
         } catch (MalformedURLException e) {
-            log.error(e.getStackTrace() + "\n unable to connect Appium Server");
+            log.error(Arrays.toString(e.getStackTrace()) + "\n unable to connect Appium Server");
         }
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("http://facebook.com");
@@ -58,7 +59,7 @@ public class GetHTMLSource_PrintAttributes {
     }
     @Test(enabled = false)
     public void f() throws Exception {
-        driver=new AndroidDriver<WebElement>(new URL("http://127.0.0.1:4723/wd/hub"), dc);
+        driver= new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), dc);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("http://selenium4testing.com");
         driver.findElement(By.id("closediv")).click();
@@ -68,7 +69,7 @@ public class GetHTMLSource_PrintAttributes {
     }
     @Test(enabled = false)
     public void f2() throws Exception {
-        driver=new AndroidDriver<WebElement>(new URL("http://127.0.0.1:4723/wd/hub"), dc);
+        driver= new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), dc);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         FileInputStream fi=new FileInputStream(".\\Testdata\\WebappData.xls");
         Workbook w=Workbook.getWorkbook(fi);

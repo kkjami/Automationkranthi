@@ -4,7 +4,6 @@ import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
@@ -34,13 +33,13 @@ public class ReadingXmlFile {
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         }
-            d = DB.parse(f);
+            d = DB != null ? DB.parse(f) : null;
         d.getDocumentElement().normalize();
         NodeList n1=d.getElementsByTagName("parameter");
         log.info("logging working");
         for (int i=0;i<n1.getLength();i++)
         {
-            Node n=n1.item(i);
+//            Node n=n1.item(i);
             Element e= (Element)n1.item(i);
 //            log.info(n.getNodeName());
             log.info(e.getNodeName());
@@ -51,10 +50,10 @@ public class ReadingXmlFile {
 
     @Test
     public void writeHtmlToFile() throws IOException {
-        File f= new File("target\\content.html");
+        File f= new File("target/content.html");
         FileWriter filewriter=new FileWriter(f);
         BufferedWriter bufferedwriter= new BufferedWriter(filewriter);
-        /** because of buffered writer we can push data multiple times to object **/
+        /* because of buffered writer we can push data multiple times to object **/
         bufferedwriter.write("<html>");
         bufferedwriter.write("<b>hai</b>");
         bufferedwriter.newLine();

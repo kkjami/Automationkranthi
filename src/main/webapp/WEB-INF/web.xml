@@ -6,7 +6,7 @@
          version="3.1">
 <servlet>
     <servlet-name>start</servlet-name>
-    <servlet-class>jetty.InitiliseTestNG</servlet-class>
+    <servlet-class>jetty.InitialiseTestNG</servlet-class>
 </servlet>
     <servlet-mapping>
         <servlet-name>start</servlet-name>

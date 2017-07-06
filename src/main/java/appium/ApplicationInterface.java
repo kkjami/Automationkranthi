@@ -28,7 +28,7 @@ public class ApplicationInterface {
 
     @Test(enabled = false)
     public void f1() throws Exception {
-        driver=new AndroidDriver<WebElement>(new URL("http://127.0.0.1:4723/wd/hub"), dc);
+        driver=new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), dc);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElementByAndroidUIAutomator(
                 "UiSelector().className(\"android.widget.TextView\").instance(8)").click();

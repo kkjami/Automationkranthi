@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by Kranthi on 03-07-2017.
  */
-public class InitiliseTestNG extends HttpServlet {
+public class InitialiseTestNG extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
@@ -22,11 +22,13 @@ public class InitiliseTestNG extends HttpServlet {
         response.getWriter().println("session=" + request.getSession(true).getId());
         response.getWriter().println("<h1>starting testNG</h1>");
         TestNG testng=new TestNG();
-        List tests=new ArrayList();
-        tests.add("src\\main\\resources\\testsuitsample.xml");
+        List<String> tests= new ArrayList<>();
+        tests.add("src/main/resources/testsuitsample.xml");
         testng.setTestSuites(tests);
+        testng.setUseDefaultListeners(false);
+        testng.getReporters();
         testng.run();
-        //TODO response.redirect testbghtml report.
+        //TODO response.redirect test background  html report.
 //        response.getWriter().println("<a href=/"target\\content.html/">viewrepotr</a>");
     }
 
