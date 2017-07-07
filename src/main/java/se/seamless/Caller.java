@@ -22,7 +22,7 @@ public class Caller {
     AppPropertyLoader paths=new AppPropertyLoader();
     private static boolean isconfigured=false;
 
-    @BeforeTest
+    @BeforeTest(groups = {"app"})
     public void init() throws MalformedURLException {
         dc = new DesiredCapabilities();
         dc.setCapability("deviceName", "AdDevice");
