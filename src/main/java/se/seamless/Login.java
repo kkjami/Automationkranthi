@@ -11,11 +11,13 @@ public class Login extends Caller{
         enterTextToField("login.agent","DIST1");
         enterTextToField("login.loginid","webuser");
         enterTextToField("login.password","20162016");
-        click("login.submitbutton");
+        System.out.println(driver.getContext());
+        clickon("login.submitbutton");
 //        validateSucessLogin();
         alertoperation("buyscreen.alertdismiss");
         sleepfor(1000);
-        click("buyscreen.logout");
+        System.out.println(driver.getContext());
+        clickon("buyscreen.logout");
         }
 
     @Test(dependsOnMethods = {"successLogin"})

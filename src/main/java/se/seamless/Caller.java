@@ -20,7 +20,7 @@ public class Caller {
     public AndroidDriver<WebElement> driver;
     JavascriptExecutor jse = (JavascriptExecutor) driver;
     AppPropertyLoader paths=new AppPropertyLoader();
-    private static boolean isconfigured=false;
+    private boolean isconfigured=true;
 
     @BeforeTest(groups = {"app"})
     public void init() throws MalformedURLException {
@@ -41,13 +41,13 @@ public class Caller {
     }
 
     private void configureServerSucessfully() {
-        click("login.settings");
+        clickon("login.settings");
         enterTextToField("appsettings.serveraddr","http://phoenix01.dev.ts");
         enterTextToField("appsettings.port","7090");
         enterTextToField("appsettings.agent","DIST1");
         enterTextToField("appsettings.loginid","webuser");
         enterTextToField("appsettings.password","20162016");
-        click("appsettings.save");
+        clickon("appsettings.save");
 
         isconfigured=true;
     }
@@ -57,15 +57,14 @@ public class Caller {
         driver.navigate().back();
     }
 
-    public void click(String ClickLocation){
+    public void clickon(String ClickLocation){
         driver.findElementByAndroidUIAutomator(paths.giveProperty(ClickLocation)).click();
     }
 
     public void alertoperation(String optionPath){
-        String currentContext = driver.getContext();
-        driver.context("NATIVE_APP");
         driver.findElementByAndroidUIAutomator(paths.giveProperty(optionPath)).click();
-        driver.context(currentContext);
+        driver.context("NATIVE_APP");
+        driver.switchTo().defaultContent();
     }
 
     public void sleepfor(int timeinms){
