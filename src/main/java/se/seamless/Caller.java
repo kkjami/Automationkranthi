@@ -53,7 +53,9 @@ public class Caller {
     }
 
     public void enterTextToField(String propertyKeyOfPath,String Data){
+
         driver.findElementByAndroidUIAutomator(paths.giveProperty(propertyKeyOfPath)).sendKeys(Data);
+        driver.findElementByAndroidUIAutomator(paths.giveProperty(propertyKeyOfPath)).clear();
         driver.navigate().back();
     }
 

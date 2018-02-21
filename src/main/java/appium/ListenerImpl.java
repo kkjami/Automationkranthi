@@ -13,7 +13,7 @@ import java.io.IOException;
 /**
  * Created by kranthikumar on 05/07/17.
  */
-class ListenerImpl implements ITestListener {
+    public class ListenerImpl implements ITestListener {
     private File file;
     private FileWriter filewriter;
     private BufferedWriter bufferedwriter;

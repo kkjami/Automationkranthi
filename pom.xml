@@ -108,6 +108,25 @@
             <version>3.1.0</version>
             <scope>provided</scope>
         </dependency>
-    </dependencies>
 
+        <!-- https://mvnrepository.com/artifact/org.eclipse.paho/org.eclipse.paho.client.mqttv3 -->
+        <dependency>
+            <groupId>org.eclipse.paho</groupId>
+            <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+            <version>1.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.paho</groupId>
+            <artifactId>mqtt-client</artifactId>
+
+            <version>0.4.0</version>
+        </dependency>
+    </dependencies>
+    <repositories>
+        <repository>
+            <id>paho-mqtt-client</id>
+            <name>Paho MQTT Client</name>
+            <url>https://repo.eclipse.org/content/repositories/paho-releases/</url>
+        </repository>
+    </repositories>
 </project>

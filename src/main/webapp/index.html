@@ -7,7 +7,9 @@
     <!-- <script>$(document).ready(function(){$("li").click(function(){$(this).hide();});});</script> -->li
     <script>$(document).ready(function () {
         $("li").click(function () {
-            $("#jk").load("/list");
+            $("#jk").load("/list",function(responseTxt, statusTxt, xhr){
+                alert(responseTxt+" "+statusTxt+" "+xhr);
+            });
         });
     });
     </script>
