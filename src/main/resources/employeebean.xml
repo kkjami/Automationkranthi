@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="emp" class="sp.Employee" init-method="myInit" destroy-method="myDestroy">
+        <property name="eid" value="104"/>
+        <property name="name" value="jk"/>
+        <property name="addr" ref="addrm"/>
+        <!--<constructor-arg ref="addrm"/>-->
+    </bean>
+    <!--inner bean-->
+    <bean id="emp4" class="sp.Employee" init-method="myInit" destroy-method="myDestroy">
+        <property name="eid" value="104"/>
+        <property name="name" value="jk"/>
+        <property name="addr">
+            <bean class="sp.Address">
+                <property name="city" value="105"/>
+                <property name="state" value="jl"/>
+                <property name="pincode" value="5556666"/>
+            </bean>
+        </property>
+        <!--<constructor-arg ref="addrm"/>-->
+    </bean>
+    <bean id="addrm" class="sp.Address">
+        <property name="city" value="105"/>
+        <property name="state" value="jl"/>
+        <property name="pincode" value="5556666"/>
+    </bean>
+    <!--name is also an alias-->
+    <bean id="emp2" class="sp.Employee" name="employee2">
+        <!--mention index to match constructor args-->
+        <constructor-arg value="106" index="1"/>
+        <constructor-arg value="06" index="0"/>
+    </bean>
+    <bean id="emp3" class="sp.Employee">
+        <!--mention dtattype to mach constructor-->
+        <constructor-arg type="int" value="106"/>
+        <constructor-arg type="java.lang.String" value="06"/>
+    </bean>
+
+    <alias name="emp4" alias="employee"/>
+</beans>

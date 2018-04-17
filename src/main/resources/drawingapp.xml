@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+       default-init-method="myInit"
+       default-destroy-method="myDestroy">
+
+<bean id="triangle" class="sp.Triangle" >
+        <property name="points">
+            <list>
+                <ref bean="point1"/>
+                <ref bean="point2"/>
+                <ref bean="point3"/>
+            </list>
+        </property>
+    </bean>
+    <!--new bean per request - prototype-->
+    <bean id="point1" class="sp.Point" scope="prototype" >
+        <property name="x" value="${pointA.PointX}"/>
+        <property name="y" value="${pointA.PointY}"/>
+    </bean>
+
+    <bean id="point2" class="sp.Point" scope="singleton" name="center">
+        <qualifier value="circleRelated"/>
+        <property name="x" value="12"/>
+        <property name="y" value="12"/>
+    </bean>
+    <!--default scope is single ton-->
+    <bean id="point3" class="sp.Point" parent="point2">
+        <property name="y" value="12"/>
+    </bean>
+
+    <!--<bean id="circle" class="sp.Circle">-->
+        <!--<property name="center" ref="point1"/>-->
+    <!--</bean>-->
+
+    <bean id="circle1" class="sp.Circle">
+       <!--comment belo to see required annotaion post processor effects-->
+        <!--<property name="center" ref="point1"/>-->
+    </bean>
+
+    <bean class="sp.DisplayNamePostProcessor"/>
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations" value="drawingapp.properties"/>
+    </bean>
+    <!--<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>-->
+    <!--<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>-->
+    <context:annotation-config/>
+</beans>
