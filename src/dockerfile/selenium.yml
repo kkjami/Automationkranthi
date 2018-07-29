@@ -1,0 +1,30 @@
+# To execute this docker-compose yml file use docker-compose -f <file_name> up
+# Add the "-d" flag at the end for deattached execution
+version: "3"
+services:
+  selenium_hub:
+    image: selenium/hub
+    container_name: selenium-hub
+    ports:
+      - "4444:4444"
+
+
+  # Docker-Android for Android application testing
+  nexus_7.1.1:
+    image: butomo1989/docker-android-x86-8.1
+    privileged: true
+    # Increase scale number if needed
+    depends_on:
+      - selenium_hub
+    ports:
+      - 6080
+    # Change path of apk that you want to test. I use sample_apk that I provide in folder "example"
+#    volumes:
+#      - $PWD/example/sample_apk:/root/tmp/sample_apk
+#      - ./video-nexus_7.1.1:/tmp/video
+    environment:
+      - DEVICE=Nexus 5
+      - CONNECT_TO_GRID=true
+      - APPIUM=true
+      - SELENIUM_HOST=selenium_hub
+      - AUTO_RECORD=false
