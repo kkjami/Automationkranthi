@@ -40,7 +40,7 @@ public class RestRequest {
         try {
             switch (protocol) {
                 case "https":
-                    HttpsURLConnection sslConnection = (HttpsURLConnection) new URL(host + path).openConnection();
+                    HttpsURLConnection sslConnection = (HttpsURLConnection) new URL(protocol+"://"+host + path).openConnection();
                     sslConnection.setRequestProperty("User-Agent", USER_AGENT);
                     if (method.equals(HttpMethod.GET))
                         sslConnection.setRequestMethod("GET");
