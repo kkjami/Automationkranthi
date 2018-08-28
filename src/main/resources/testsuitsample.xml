@@ -1,15 +1,20 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Parameterization Test Suite">
+    <listeners>
+        <listener class-name="appium.ListenerImpl"></listener>
+    </listeners>
     <test name="Testing Parameterization" enabled="false">
         <parameter name="browser" value="Firefox"/>
         <parameter name="username" value="testuser"/>
         <parameter name="password" value="testpassword"/>
         <classes>
-            <class name="appium.ReadingXmlFile" />
+            <class name="appium.ReadingXmlFile"/>
         </classes>
 
     </test>
     <test name="grouptests">
-        <packages><package name="appium"></package></packages>
+        <packages>
+            <package name="appium"></package>
+        </packages>
     </test>
 </suite>

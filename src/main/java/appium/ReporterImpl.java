@@ -12,7 +12,7 @@ import java.util.List;
 public class ReporterImpl implements IReporter {
 
     @Override
-    public void generateReport(List<XmlSuite> list, List<ISuite> list1, String s) {
+    public void generateReport(List<XmlSuite> list, List<ISuite> list1, String outputDirectory) {
 
     }
 }
