@@ -10,6 +10,11 @@
 
     <!-- Output to jar format -->
     <!--<packaging>jar</packaging>-->
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>RELEASE</version>
+</parent>
 
     <build>
         <plugins>
@@ -100,7 +105,7 @@
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-server</artifactId>
-            <version>9.4.6.v20170531</version>
+            <version>9.4.11.v20180605</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -134,14 +139,38 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>5.0.4.RELEASE</version>
+            <version>5.0.7.RELEASE</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
-            <version>5.0.4.RELEASE</version>
+            <version>5.0.7.RELEASE</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-data-jpa</artifactId>-->
+            <!--<version>1.5.2.RELEASE</version>-->
+        <!--</dependency>-->
+
+    <!--    <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>1.5.2.RELEASE</version>
+        </dependency>-->
+
+
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
