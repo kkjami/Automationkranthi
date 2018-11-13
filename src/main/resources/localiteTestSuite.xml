@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="loclite">
+    <test name="Testing">
+        <classes>
+            <class name="localitie.tests.SignUp"/>
+            <class name="localitie.tests.Login"/>
+        </classes>
+    </test>
+</suite>
