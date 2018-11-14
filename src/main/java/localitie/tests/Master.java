@@ -15,10 +15,12 @@ public class Master {
 
     @BeforeSuite
     public void initDriver(){
+
         }
 
 
     @AfterSuite
     public void finilizeTests(){
+
     }
 }

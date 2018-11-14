@@ -6,13 +6,15 @@ import org.testng.annotations.Test;
 
 public class Login extends Master {
 
-    LoginOptions loginOptions = new LoginOptions();
-    LoginScreen loginScreen = new LoginScreen();
+    private LoginOptions loginOptions = new LoginOptions();
+    private LoginScreen loginScreen = new LoginScreen();
 
     @Test
     public void successLogin() {
         loginOptions.touchSignIn();
-
+        loginScreen.enterMailId("user1@mail.com");
+        loginScreen.enterPassword("1234");
+        loginScreen.signin_button.click();
         /***
          * Assertions
          */
@@ -27,7 +29,6 @@ public class Login extends Master {
 
     @Test(enabled = false)
     public void FacebookLogin() {
-
         loginOptions.fbLogin();
     }
 
