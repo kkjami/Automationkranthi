@@ -1,13 +1,9 @@
 package localitie.tests;
 
-import localitie.screenObjects.LoginOptions;
-import localitie.screenObjects.LoginScreen;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 public class Login extends Master {
-
-    private LoginOptions loginOptions = new LoginOptions();
-    private LoginScreen loginScreen = new LoginScreen();
 
     @Test
     public void successLogin() {
@@ -15,8 +11,8 @@ public class Login extends Master {
         loginScreen.enterMailId("user1@mail.com");
         loginScreen.enterPassword("1234");
         loginScreen.signin_button.click();
-        /***
-         * Assertions
+        /**
+         Assertions
          */
         //visible elements
 
@@ -35,5 +31,10 @@ public class Login extends Master {
     @Test
     public void googleLogin() {
 
+    }
+
+    @AfterTest
+    public void coldLogout() {
+//        navigator.exitappWithLogout();
     }
 }

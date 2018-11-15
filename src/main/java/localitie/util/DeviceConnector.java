@@ -1,8 +1,9 @@
 package localitie.util;
 
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.connection.ConnectionStateBuilder;
 import io.appium.java_client.remote.MobileCapabilityType;
+
+import org.apache.log4j.Logger;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;
@@ -15,17 +16,18 @@ import java.util.concurrent.TimeUnit;
  */
 public class DeviceConnector {
     private static ConfigReader config = new ConfigReader();
-    private static AndroidDriver driver;
+    private static AndroidDriver androidDriver;
+    private Logger log = Logger.getLogger(this.getClass().getName());
 
     // Get the only object available
     public static AndroidDriver getInstance() {
-        if (driver == null) {
-            setDriver();
+        if (androidDriver == null) {
+            androidDriver = (new DeviceConnector()).setDriver();
         }
-        return driver;
+        return androidDriver;
     }
 
-    private static void setDriver() {
+    private AndroidDriver setDriver() {
 
         DesiredCapabilities desiredcapabilities = new DesiredCapabilities();
         File apk = new File(config.get("apk"));
@@ -36,15 +38,16 @@ public class DeviceConnector {
 //        desiredcapabilities.setCapability("appPackage", "com.localities");
 //        desiredcapabilities.setCapability("appActivity","com.localities");
         try {
-            driver = new AndroidDriver<>(new URL(config.get("appiumLink")), desiredcapabilities);
+            androidDriver = new AndroidDriver<>(new URL(config.get("appiumLink")), desiredcapabilities);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }/*catch(ConnectException e){
             System.out.println("appium is down");
         }*/
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        System.out.println("appium session crated: " + driver.getSessionId().toString());
-        System.out.println("appium session crated: " + driver.getConnection().getBitMask());
-        System.out.println("appium session crated: " + driver.getConnection().isWiFiEnabled());
+        androidDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        log.info("appium session crated: " + androidDriver.getSessionId().toString());
+        log.info("network bitmask: " + androidDriver.getConnection().getBitMask());
+        log.info("appium session created: " + androidDriver.getConnection().isWiFiEnabled());
+        return androidDriver;
     }
 }

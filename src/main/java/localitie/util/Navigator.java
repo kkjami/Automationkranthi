@@ -44,9 +44,9 @@ public class Navigator {
     private Boolean hasPath(String source_activity,String destination_activity){
         return false;
     }
-    public void navigateTo(String activity_name){
+    public void navigateTo(Object pageObject){
         String activity = driver.currentActivity();
-        if(null!=hasPath(activity,activity_name)){
+        if(null!=hasPath(activity,pageObject.toString())){
 //            getPageObject(activity).back();
         }else
         {

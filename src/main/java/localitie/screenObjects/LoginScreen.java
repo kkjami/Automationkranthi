@@ -1,8 +1,6 @@
 package localitie.screenObjects;
 
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.nativekey.AndroidKey;
-import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import localitie.util.DeviceConnector;
@@ -29,14 +27,9 @@ public class LoginScreen {
 
     public void enterMailId(String emailid) {
         emailInput.click();
-        Assert.assertTrue(driver.isKeyboardShown());
-//        driver.getKeyboard().sendKeys(emailid);
-        driver.pressKey(new KeyEvent(AndroidKey.A));
-        driver.pressKey(new KeyEvent(AndroidKey.A));
-        driver.pressKey(new KeyEvent(AndroidKey.A));
-        driver.pressKey(new KeyEvent(AndroidKey.A));
-        driver.pressKey(new KeyEvent(AndroidKey.A));
-        driver.pressKey(new KeyEvent(AndroidKey.A));
+        Assert.assertTrue(driver.isKeyboardShown(), "isKeyboardShown= ");
+        emailInput.sendKeys(emailid);
+//        driver.pressKey(new KeyEvent(AndroidKey.A));
         driver.hideKeyboard();
     }
 

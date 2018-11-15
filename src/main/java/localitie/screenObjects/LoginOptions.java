@@ -3,15 +3,14 @@ package localitie.screenObjects;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import localitie.tests.Master;
 import localitie.util.DeviceConnector;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginOptions extends Master {
+public class LoginOptions {
 
     public LoginOptions() {
-        AndroidDriver driver=DeviceConnector.getInstance();
+        AndroidDriver driver = DeviceConnector.getInstance();
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
@@ -38,20 +37,22 @@ public class LoginOptions extends Master {
         login_manual.click();
     }
 
-    public void welcomeAccept(){
+    public void welcomeAccept() {
         welcomeOk.click();
     }
 
-    public void permissionAccept(){
+    public void permissionAccept() {
         permission_accept.click();
     }
 
-    public void permissionDeny(){
+    public void permissionDeny() {
         permission_deny.click();
     }
-    public void fbLogin(){
+
+    public void fbLogin() {
         login_with_fb.click();
     }
-    public void back(){
+
+    public void back() {
     }
 }
