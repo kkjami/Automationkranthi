@@ -13,8 +13,8 @@ import org.openqa.selenium.WebElement;
 public class AndroidController {
 
 
-    AndroidDriver driver = (AndroidDriver) DeviceConnector.getInstance();
-    Logger log = Logger.getLogger(this.getClass().getName());
+    private AndroidDriver driver = DeviceConnector.getInstance();
+    private Logger log = Logger.getLogger(this.getClass().getName());
 
     public void wifiOn() {
 

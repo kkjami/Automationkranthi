@@ -9,19 +9,17 @@ import org.openqa.selenium.support.PageFactory;
 
 public class NotificationScreen {
     public NotificationScreen() {
-
         AndroidDriver driver=DeviceConnector.getInstance();
-        driver.openNotifications();
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
-
-    @AndroidFindBy(id = "com.localities:id/snackbar_action")
+//TODO change as per notification screen.
+    @AndroidFindBy(id = "")
     public WebElement retry;
 
-    @AndroidFindBy(id = "com.localities:id/snackbar_text")
+    @AndroidFindBy(id = "")
     public WebElement retryNote;
 
-    @AndroidFindBy(id = "com.localities:id/tvWelcome")
+    @AndroidFindBy(id = "")
     public WebElement loadingNote;
 
     public void clickRetry(){

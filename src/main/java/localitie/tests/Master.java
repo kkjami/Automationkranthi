@@ -25,7 +25,6 @@ public class Master {
     Navigator navigator = new Navigator();
     @BeforeSuite
     public void initDriver() {
-
         if(!androidController.isWifiEnabled()){
             androidController.wifiOn();
             splashScreen.clickRetry();
