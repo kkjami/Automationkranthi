@@ -8,7 +8,7 @@ public class ConfigReader {
     public ConfigReader(){
         configs.put("deviceName","73efd247");
         configs.put("appiumLink","http://127.0.0.1:4723/wd/hub");
-        configs.put("apk","/Users/kranthikumar/Downloads/locality_06_Nov.apk");
+        configs.put("apk","C:\\Users\\Kranthi\\Downloads\\locality_06_Nov.apk");
     }
 
     public String get(String Item){

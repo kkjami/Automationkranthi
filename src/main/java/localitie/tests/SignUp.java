@@ -14,12 +14,26 @@ public class SignUp extends Master {
     }
 
     @Test
+    public void invalidFbSignUP() {
+
+    }
+
+    @Test
     public void gmailSignUP() {
+
+    }
+    @Test
+    public void invalidGmailSignUP() {
 
     }
 
     @Test
     public void manualSignUP() {
+
+
+    }
+    @Test
+    public void InvalidManualSignUP() {
 
 
     }
