@@ -12,7 +12,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
- *
+ *[id=com.localities:id/cardBottom]/android.widget.HorizontalScrollView[last()]/android.widget.LinearLayout[1]//android.support.v7.app.ActionBar.Tab[2]
  */
 public class DeviceConnector {
     private ConfigReader config = new ConfigReader();
