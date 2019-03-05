@@ -12,9 +12,7 @@ public class TutorialScreen {
     AndroidDriver driver;
     AndroidController ac = new AndroidController();
 
-    public TutorialScreen() {
-
-        driver = DeviceConnector.getInstance();
+    public TutorialScreen(AndroidDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
@@ -26,6 +24,7 @@ public class TutorialScreen {
 
     @AndroidFindBy(xpath = "\t/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView[2]")
     public WebElement adImage;
+
     @AndroidFindBy(id = "com.localities:id/tvText")
     public WebElement start;
 

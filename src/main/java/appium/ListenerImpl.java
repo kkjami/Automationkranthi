@@ -1,9 +1,7 @@
 package appium;
 
 import org.apache.log4j.Logger;
-import org.testng.ITestContext;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
+import org.testng.*;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -13,14 +11,25 @@ import java.io.IOException;
 /**
  * Created by kranthikumar on 05/07/17.
  */
-    public class ListenerImpl implements ITestListener {
-    private File file;
-    private FileWriter filewriter;
-    private BufferedWriter bufferedwriter;
-    private final Logger log=Logger.getLogger(ListenerImpl.class);
-    @Override
-    public void onTestStart(ITestResult iTestResult) {
+public class ListenerImpl  implements ITestListener, ISuiteListener {
 
+    private BufferedWriter bufferedwriter;
+    private Logger log = Logger.getLogger(this.getClass());
+
+    public ListenerImpl() {
+        System.setProperty("rp.description","jkl");
+    }
+
+    @Override
+    public synchronized void onTestStart(ITestResult iTestResult) {
+        log.info(iTestResult.getParameters());
+        log.info(iTestResult.getHost());
+        log.info(iTestResult.getEndMillis());
+        log.info(iTestResult.getFactoryParameters());
+        log.info(iTestResult.getMethod());
+        log.info(iTestResult.getInstanceName());
+        log.info(iTestResult.getName());
+        log.info(iTestResult.getStartMillis());
     }
 
     @Override
@@ -45,10 +54,8 @@ import java.io.IOException;
 
     @Override
     public void onStart(ITestContext iTestContext) {
-        file = new File("target/content.html");
         try {
-            filewriter = new FileWriter(file);
-            bufferedwriter = new BufferedWriter(filewriter);
+            bufferedwriter = new BufferedWriter(new FileWriter(new File("target/content.html")));
             bufferedwriter.write(iTestContext.getSuite().getName());
         } catch (IOException e) {
             log.info(e.getStackTrace());

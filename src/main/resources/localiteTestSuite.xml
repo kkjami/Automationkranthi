@@ -1,7 +1,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="loclite">
+    <listeners>
+        <listener class-name="appium.ListenerImpl" />
+        <!--<listener class-name="com.epam.reportportal.testng.ReportPortalTestNGListener" />-->
+    </listeners>
     <test name="Testing">
         <classes>
+            <!--<class name="testng.AssertTest"/>-->
             <class name="localitie.tests.SignUp"/>
             <class name="localitie.tests.Login"/>
         </classes>

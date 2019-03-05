@@ -1,31 +1,32 @@
 package localitie.tests;
 
-import localitie.screenObjects.IntroductionScreen;
-import localitie.screenObjects.LoginOptions;
-import localitie.screenObjects.LoginScreen;
-import localitie.screenObjects.SplashScreen;
+import io.appium.java_client.android.AndroidDriver;
+import localitie.screenObjects.*;
 import localitie.util.AndroidController;
 import localitie.util.ConfigReader;
+import localitie.util.DeviceConnector;
 import localitie.util.Navigator;
 import org.apache.log4j.Logger;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.asserts.SoftAssert;
 
 public class Master {
 
-    public ConfigReader config = new ConfigReader();
     private Logger log = Logger.getLogger(this.getClass());
-    SoftAssert softassert = new SoftAssert();
-    private AndroidController androidController =new AndroidController();
-    private SplashScreen splashScreen =new SplashScreen();
-    private IntroductionScreen intro = new IntroductionScreen();
-    LoginOptions loginOptions = new LoginOptions();
-    LoginScreen loginScreen = new LoginScreen();
+    AndroidDriver driver = DeviceConnector.getInstance();
     Navigator navigator = new Navigator();
+    SoftAssert softassert = new SoftAssert();
+    ConfigReader config = new ConfigReader();
+    AndroidController androidController = new AndroidController();
+    SplashScreen splashScreen = new SplashScreen(driver);
+    IntroductionScreen intro = new IntroductionScreen(driver);
+    LoginOptions loginOptions = new LoginOptions(driver);
+    LoginScreen loginScreen = new LoginScreen(driver);
+    BottomMainMenu bottomMainMenu = new BottomMainMenu(driver);
+
     @BeforeSuite
     public void initDriver() {
-        if(!androidController.isWifiEnabled()){
+        if (!androidController.isWifiEnabled()) {
             androidController.wifiOn();
             splashScreen.clickRetry();
         }
@@ -42,7 +43,7 @@ public class Master {
     }
 
 
-//    @AfterSuite
+    //    @AfterSuite
     public void cleanup() {
         log.warn("turning off wifi");
         androidController.wifiOff();

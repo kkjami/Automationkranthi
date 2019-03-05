@@ -9,8 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginOptions {
 
-    public LoginOptions() {
-        AndroidDriver driver = DeviceConnector.getInstance();
+    public LoginOptions(AndroidDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 

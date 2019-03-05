@@ -8,9 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 public class SplashScreen {
-    public SplashScreen() {
-
-        AndroidDriver driver=DeviceConnector.getInstance();
+    public SplashScreen(AndroidDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 

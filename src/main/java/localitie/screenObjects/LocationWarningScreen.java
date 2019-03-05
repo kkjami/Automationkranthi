@@ -12,9 +12,9 @@ public class LocationWarningScreen {
     AndroidDriver driver;
     AndroidController ac = new AndroidController();
 
-    public LocationWarningScreen() {
+    public LocationWarningScreen(AndroidDriver driver) {
 
-        driver = DeviceConnector.getInstance();
+        this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 

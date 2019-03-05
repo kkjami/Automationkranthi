@@ -8,9 +8,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 public class BottomMainMenu {
-    public BottomMainMenu() {
+    public BottomMainMenu(AndroidDriver driver) {
 
-        AndroidDriver driver=DeviceConnector.getInstance();
+
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 

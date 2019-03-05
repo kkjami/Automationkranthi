@@ -8,9 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 public class TopMyPageMenu {
-    public TopMyPageMenu() {
-
-        AndroidDriver driver = DeviceConnector.getInstance();
+    public TopMyPageMenu(AndroidDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 

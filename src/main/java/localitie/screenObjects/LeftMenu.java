@@ -8,9 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 public class LeftMenu {
-    public LeftMenu() {
-
-        AndroidDriver driver=DeviceConnector.getInstance();
+    public LeftMenu(AndroidDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 //TODO change as per notification screen.

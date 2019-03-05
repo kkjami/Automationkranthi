@@ -8,9 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 public class CategorySelectionScreen {
-    public CategorySelectionScreen() {
-
-        AndroidDriver driver = DeviceConnector.getInstance();
+    public CategorySelectionScreen(AndroidDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 

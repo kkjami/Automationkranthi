@@ -12,9 +12,8 @@ public class IntroductionScreen {
     AndroidDriver driver;
     AndroidController ac = new AndroidController();
 
-    public IntroductionScreen() {
-
-        driver = DeviceConnector.getInstance();
+    public IntroductionScreen(AndroidDriver driver) {
+        this.driver=driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 

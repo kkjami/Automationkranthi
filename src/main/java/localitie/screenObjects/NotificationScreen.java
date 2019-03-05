@@ -8,8 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 public class NotificationScreen {
-    public NotificationScreen() {
-        AndroidDriver driver=DeviceConnector.getInstance();
+    public NotificationScreen(AndroidDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 //TODO change as per notification screen.

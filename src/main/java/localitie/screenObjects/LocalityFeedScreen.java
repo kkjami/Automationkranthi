@@ -10,8 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 public class LocalityFeedScreen {
     private AndroidDriver driver;
 
-    public LocalityFeedScreen() {
-        driver = DeviceConnector.getInstance();
+    public LocalityFeedScreen(AndroidDriver driver) {
+        this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 

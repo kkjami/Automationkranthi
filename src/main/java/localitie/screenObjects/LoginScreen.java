@@ -11,8 +11,8 @@ import org.testng.Assert;
 public class LoginScreen {
     private AndroidDriver driver;
 
-    public LoginScreen() {
-        driver = DeviceConnector.getInstance();
+    public LoginScreen(AndroidDriver driver) {
+        this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 

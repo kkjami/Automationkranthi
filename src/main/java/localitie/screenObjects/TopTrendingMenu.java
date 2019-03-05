@@ -8,9 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 public class TopTrendingMenu {
-    public TopTrendingMenu() {
-
-        AndroidDriver driver = DeviceConnector.getInstance();
+    public TopTrendingMenu(AndroidDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 

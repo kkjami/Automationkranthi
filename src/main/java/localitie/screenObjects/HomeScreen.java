@@ -8,9 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 public class HomeScreen {
-    public HomeScreen() {
-
-        AndroidDriver driver = DeviceConnector.getInstance();
+    public HomeScreen(AndroidDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
