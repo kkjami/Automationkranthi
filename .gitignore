@@ -2,3 +2,5 @@
 .idea/
 test-output
 target
+package-lock.json
+node_modules

@@ -1,0 +1,19 @@
+version: v1
+kind: pod
+metadata:
+  name: seleapp
+  
+spec:
+  replicas: 2
+  selector: 
+   app: firstpod
+  template:
+   metadata: 
+     lables: 
+       name: firstpod
+  spec:
+   containers: 
+   - name: selenium-hub
+    image: selenium/hub 
+    ports:
+     -containerport: 4444

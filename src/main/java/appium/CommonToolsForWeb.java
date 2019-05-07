@@ -16,19 +16,18 @@ import java.util.concurrent.TimeUnit;
  */
 public class CommonToolsForWeb {
 
-    DesiredCapabilities desiredcapabilites;
     AndroidDriver<WebElement> driver;
 
     @BeforeTest
     public void setup() {
         File file = new File("src\\main\\resources\\com.android.chrome_58.0.3029.83-302908311_minAPI21(x86)(nodpi)" +
                 "_apkmirror.com.apk");
-        desiredcapabilites = new DesiredCapabilities();
+        DesiredCapabilities desiredcapabilites = new DesiredCapabilities();
         desiredcapabilites.setCapability("deviceName", "AEmulator");
         desiredcapabilites.setCapability("platformVersion", "6.0");
         desiredcapabilites.setCapability("platformName", "Android");
-        desiredcapabilites.setCapability("app",file.getAbsolutePath());
-       // desiredcapabilites.setCapability("browserName", "Chrome");
+        desiredcapabilites.setCapability("app", file.getAbsolutePath());
+        // desiredcapabilites.setCapability("browserName", "Chrome");
         System.out.println(file.getAbsolutePath());
         //dc.setCapability(CapabilityType.BROWSER_NAME, "firefox");
         try {

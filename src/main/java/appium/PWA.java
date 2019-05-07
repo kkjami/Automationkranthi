@@ -1,30 +1,27 @@
 package appium;
 
 import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by Kranthi on 07-07-2017.
- */
-public class CommonToolsForApp {
+public class PWA {
 
-    AndroidDriver<WebElement> driver;
+    private AndroidDriver<WebElement> driver;
 
-    @BeforeTest
-    public void setup() {
-        File file=new File("D:\\Whats app\\WhatsApp.apk");
+    @Test
+    public void openPwa() {
         DesiredCapabilities desiredcapabilites = new DesiredCapabilities();
-        desiredcapabilites.setCapability("deviceName", "AEmulator");
-        desiredcapabilites.setCapability("platformVersion", "6.0");
+        desiredcapabilites.setCapability("deviceName", "emu");
+        desiredcapabilites.setCapability("platformVersion", "8.1");
         desiredcapabilites.setCapability("platformName", "Android");
+//        cmp=com.android.chrome/com.google.android.apps.chrome.Main
         desiredcapabilites.setCapability("appPackage", "com.android.dialer");
         desiredcapabilites.setCapability("appActivity", "com.android.dialer.DialtactsActivity");
         //desiredcapabilites.setCapability("file",file.getAbsolutePath());
@@ -34,11 +31,13 @@ public class CommonToolsForApp {
             e.printStackTrace();
         }
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    }
-
-    @AfterTest
-    public void teardown() {
-        //driver.closeApp();
+//        driver.findElementByAndroidUIAutomator(
+//                "UiSelector().className(\"android.widget.Button\").instance(0)").click();
+//        driver.get("http://gmail.com");
+//        driver.findElement(By.id("Email")).sendKeys("testingse2");
+        driver.findElement(By.id("next")).click();
+        driver.findElement(By.id("Passwd")).sendKeys("selenium345");
+        driver.findElement(By.id("signIn")).click();
         driver.quit();
     }
 }
