@@ -9,9 +9,9 @@ import org.testng.annotations.Test;
 public class Login extends Caller {
     @Test
     public void successLogin(){
-        enterTextToField("login.agent","DIST1");
-        enterTextToField("login.loginid","webuser");
-        enterTextToField("login.password","20162016");
+        enterTextToField("login.agent","agent");
+        enterTextToField("login.loginid","loginid");
+        enterTextToField("login.password","password");
         System.out.println(driver.getContext());
         clickon("login.submitbutton");
 //        validateSucessLogin();
