@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * Created by kranthikumar on 05/07/17.
  */
-public class ListenerImpl  implements ITestListener, ISuiteListener {
+public class ListenerImpl  implements ITestListener {
 
     private BufferedWriter bufferedwriter;
     private Logger log = Logger.getLogger(this.getClass());
@@ -25,7 +25,6 @@ public class ListenerImpl  implements ITestListener, ISuiteListener {
         log.info(iTestResult.getParameters());
         log.info(iTestResult.getHost());
         log.info(iTestResult.getEndMillis());
-        log.info(iTestResult.getFactoryParameters());
         log.info(iTestResult.getMethod());
         log.info(iTestResult.getInstanceName());
         log.info(iTestResult.getName());

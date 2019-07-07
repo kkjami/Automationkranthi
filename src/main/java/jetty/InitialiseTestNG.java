@@ -33,7 +33,6 @@ public class InitialiseTestNG extends HttpServlet {
         tests.add("src/main/resources/testsuitsample.xml");
         testng.setTestSuites(tests);
         testng.setUseDefaultListeners(false);
-        testng.addListener(new ListenerImpl());
         testng.run();
         //TODO response.redirect test background  html report.
         //response.sendRedirect("/getreport?reportid=" + reportid);

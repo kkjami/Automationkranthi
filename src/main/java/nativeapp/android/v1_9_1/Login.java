@@ -1,7 +1,7 @@
-package se.seamless.v1_9_1;
+package nativeapp.android.v1_9_1;
 
+import nativeapp.android.Caller;
 import org.testng.annotations.Test;
-import se.seamless.Caller;
 
 /**
  * Created by kranthikumar on 05/07/17.

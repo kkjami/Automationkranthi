@@ -1,4 +1,4 @@
-package se.seamless;
+package nativeapp.android;
 
 import org.testng.annotations.DataProvider;
 

@@ -1,4 +1,4 @@
-package se.seamless;
+package nativeapp.android;
 
 import java.io.*;
 import java.text.MessageFormat;

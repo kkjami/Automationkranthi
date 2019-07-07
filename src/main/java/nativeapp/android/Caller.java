@@ -1,7 +1,6 @@
-package se.seamless;
+package nativeapp.android;
 
 import io.appium.java_client.android.AndroidDriver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -28,8 +27,8 @@ public class Caller {
         dc.setCapability("deviceName", "AdDevice");
         dc.setCapability("platformVersion", "7.0");
         dc.setCapability("platformName", "Android");
-        dc.setCapability("appPackage", "com.seamless.newco");
-        dc.setCapability("appActivity", ".activity.SplashScreenActivity");
+        dc.setCapability("appPackage", "");
+        dc.setCapability("appActivity", "");
         driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), dc);
         sleepfor(5000);
     }
@@ -42,11 +41,11 @@ public class Caller {
 
     private void configureServerSucessfully() {
         clickon("login.settings");
-        enterTextToField("appsettings.serveraddr","http://phoenix01.dev.ts");
+        enterTextToField("appsettings.serveraddr","http://localhost");
         enterTextToField("appsettings.port","7090");
-        enterTextToField("appsettings.agent","DIST1");
-        enterTextToField("appsettings.loginid","webuser");
-        enterTextToField("appsettings.password","20162016");
+        enterTextToField("appsettings.agent","agent");
+        enterTextToField("appsettings.loginid","loginid");
+        enterTextToField("appsettings.password","password");
         clickon("appsettings.save");
 
         isconfigured=true;
