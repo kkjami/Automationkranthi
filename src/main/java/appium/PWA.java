@@ -1,14 +1,14 @@
 package appium;
 
 import io.appium.java_client.android.AndroidDriver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.Test;
 
-import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class PWA {
@@ -17,27 +17,27 @@ public class PWA {
 
     @Test
     public void openPwa() {
+        ChromeOptions chromeOptions=new ChromeOptions();
         DesiredCapabilities desiredcapabilites = new DesiredCapabilities();
         desiredcapabilites.setCapability("deviceName", "emu");
-        desiredcapabilites.setCapability("platformVersion", "8.1");
+        desiredcapabilites.setCapability("platformVersion", "6.0.1");
         desiredcapabilites.setCapability("platformName", "Android");
-//        cmp=com.android.chrome/com.google.android.apps.chrome.Main
-        desiredcapabilites.setCapability("appPackage", "com.android.dialer");
-        desiredcapabilites.setCapability("appActivity", "com.android.dialer.DialtactsActivity");
-        //desiredcapabilites.setCapability("file",file.getAbsolutePath());
+        desiredcapabilites.setCapability("appPackage", "com.sec.android.app.launcher");
+        desiredcapabilites.setCapability("appActivity", "com.android.launcher2.LauncherProvider");
         try {
             driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), desiredcapabilites);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//        driver.findElementByAndroidUIAutomator(
-//                "UiSelector().className(\"android.widget.Button\").instance(0)").click();
-//        driver.get("http://gmail.com");
-//        driver.findElement(By.id("Email")).sendKeys("testingse2");
-        driver.findElement(By.id("next")).click();
-        driver.findElement(By.id("Passwd")).sendKeys("selenium345");
-        driver.findElement(By.id("signIn")).click();
+        driver.findElementByAndroidUIAutomator("UiSelector().text(\"Aliv\")").click();
+        Set<String> contextNames = driver.getContextHandles();
+        for (String contextName : contextNames) {
+            System.out.println(contextName); //prints out something like NATIVE_APP \n WEBVIEW_1
+        }
+        driver.context(contextNames.toArray()[1].toString()); // set
+
+        driver.context("NATIVE_APP");
         driver.quit();
     }
 }

@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: chrome
+
+spec:
+  replicas: 3
+  selector:
+    app: chrome-se
+  template:
+    metadata:
+      labels:
+        app: chrome-se
+    spec:
+      containers:
+        - name: node-chrome
+          image: selenium/node-chrome
+          ports:
+            - containerPort: 5555
+          env:
+            - name: HUB_HOST
+              value: "hubservice"
+            - name: HUB_PORT
+              value: "4444"

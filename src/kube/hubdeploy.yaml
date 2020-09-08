@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hubdeploy
+spec:
+  selector:
+    matchLabels:
+      app: hubdeploy
+  template:
+    metadata:
+      labels:
+        app: hubdeploy
+    spec:
+      containers:
+      - name: hubdeploy
+        image: selenium/hub:3.141.59
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 4444
+        livenessProbe:
+            httpGet:
+              path: /wd/hub/status
+              port: 4444
+            initialDelaySeconds: 30
+            timeoutSeconds: 5

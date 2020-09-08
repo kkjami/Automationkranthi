@@ -107,7 +107,7 @@
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-server</artifactId>
-            <version>9.4.17.v20190418</version>
+            <version>9.4.11.v20180605</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -157,6 +157,11 @@
             <groupId>com.epam.reportportal</groupId>
             <artifactId>logger-java-log4j</artifactId>
             <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>fm.void.jetm</groupId>
+            <artifactId>jetm</artifactId>
+            <version>1.2.3</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
         <dependency>

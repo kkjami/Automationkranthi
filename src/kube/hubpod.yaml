@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hub
+  labels:
+    name: hub
+spec:
+  containers:
+  - name: hub
+    image: selenium/hub
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 4444
